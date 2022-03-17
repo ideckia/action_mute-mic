@@ -1,0 +1,4 @@
+node_modules/*
+gen.readme.md
+index.js
+mute-win.exe

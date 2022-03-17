@@ -1,0 +1,63 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    env:
+      CMD_NAME: mute-mic
+      HAXE_VERSION: latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install lix, haxe ${{ env.HAXE_VERSION }} and dependencies
+      run: |
+            npm i -g lix
+            lix install haxe ${{ env.HAXE_VERSION }}
+            lix download
+
+    - name: Compile project
+      run: haxe deploy.hxml
+
+    - name: Set up MinGW
+      uses: crazy-max/ghaction-chocolatey@v1
+      with:
+        args: install mingw -y
+
+    - name: Compile windows executable
+      run: |
+        x86_64-w64-mingw32-g++ -IC:\ProgramData\chocolatey\lib\mingw\tools\install\mingw64\include mute-win.cpp -lole32 -o mute-win
+
+    - name: Package to release
+      run: |
+        mkdir -p tmp/${{ env.CMD_NAME }}
+        mv index.js tmp/${{ env.CMD_NAME }}
+        mv presets.json tmp/${{ env.CMD_NAME }}
+        mv readme.md tmp/${{ env.CMD_NAME }}
+        mv mute-win.exe tmp/${{ env.CMD_NAME }}
+        
+    - uses: papeloto/action-zip@v1
+      with:
+        files: tmp/
+        dest: ${{ env.CMD_NAME }}.zip
+
+    - name: Release
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        prerelease: false
+        files: ${{ env.CMD_NAME }}.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
