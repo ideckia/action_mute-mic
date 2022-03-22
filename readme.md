@@ -33,3 +33,7 @@ Mute / unmute system microphone
     }
 }
 ```
+
+## Credits
+
+Windows aplication C++ code modified from [rdp](https://gist.github.com/rdp/8363580)
