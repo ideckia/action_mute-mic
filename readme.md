@@ -1,4 +1,4 @@
-# Action for ideckia: mute-mic
+# Action for [ideckia](https://ideckia.github.io/): mute-mic
 
 ## Definition
 
