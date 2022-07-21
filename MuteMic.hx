@@ -39,12 +39,15 @@ class MuteMic extends IdeckiaAction {
 		MuteMac.init();
 		MuteWindows.init();
 
-		unmutedIcon = props.unmutedIcon == null ? Icons.getUnmuted() : props.unmutedIcon;
-		mutedIcon = props.mutedIcon == null ? Icons.getMuted() : props.mutedIcon;
+		unmutedIcon = isBlank(props.unmutedIcon) ? Icons.getUnmuted() : props.unmutedIcon;
+		mutedIcon = isBlank(props.mutedIcon) ? Icons.getMuted() : props.mutedIcon;
 		isMuted = true;
 
 		return executeAction(mute, initialState);
 	}
+
+	function isBlank(s:String)
+		return s == null || StringTools.trim(s) == '';
 
 	public function execute(currentState:ItemState):js.lib.Promise<ItemState> {
 		return executeAction((isMuted) ? unmute : mute, currentState);

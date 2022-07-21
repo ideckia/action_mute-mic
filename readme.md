@@ -1,4 +1,4 @@
-# Action for ideckia: mute-mic
+# Action for [ideckia](https://ideckia.github.io/): mute-mic
 
 ## Definition
 
@@ -33,3 +33,7 @@ Mute / unmute system microphone
     }
 }
 ```
+
+## Credits
+
+Windows aplication C++ code modified from [rdp](https://gist.github.com/rdp/8363580)
