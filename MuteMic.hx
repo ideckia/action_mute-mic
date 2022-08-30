@@ -4,13 +4,13 @@ using api.IdeckiaApi;
 
 typedef Props = {
 	@:editable("Muted icon in base64")
-	var mutedIcon:String;
+	var muted_icon:String;
 	@:editable("Muted color", 'ffaa0000')
-	var mutedColor:String;
+	var muted_color:String;
 	@:editable("Unmuted icon in base64")
-	var unmutedIcon:String;
+	var unmuted_icon:String;
 	@:editable("Unmuted color", 'ff00aa00')
-	var unmutedColor:String;
+	var unmuted_color:String;
 }
 
 enum abstract System(String) from String {
@@ -39,8 +39,8 @@ class MuteMic extends IdeckiaAction {
 		MuteMac.init();
 		MuteWindows.init();
 
-		unmutedIcon = isBlank(props.unmutedIcon) ? Icons.getUnmuted() : props.unmutedIcon;
-		mutedIcon = isBlank(props.mutedIcon) ? Icons.getMuted() : props.mutedIcon;
+		unmutedIcon = isBlank(props.unmuted_icon) ? Icons.getUnmuted() : props.unmuted_icon;
+		mutedIcon = isBlank(props.muted_icon) ? Icons.getMuted() : props.muted_icon;
 		isMuted = true;
 
 		return executeAction(mute, initialState);
@@ -64,7 +64,7 @@ class MuteMic extends IdeckiaAction {
 
 			muteFunction(action).then(isMuted -> {
 				this.isMuted = isMuted;
-				state.bgColor = isMuted ? props.mutedColor : props.unmutedColor;
+				state.bgColor = isMuted ? props.muted_color : props.unmuted_color;
 				state.icon = isMuted ? mutedIcon : unmutedIcon;
 				resolve(state);
 			});

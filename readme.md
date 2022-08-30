@@ -8,10 +8,10 @@ Mute / unmute system microphone
 
 | Name | Type | Description | Shared | Default | Possible values |
 | ----- |----- | ----- | ----- | ----- | ----- |
-| mutedIcon | String | Muted icon in base64 | false | null | null |
-| mutedColor | String | Muted color | false | 'ffaa0000' | null |
-| unmutedIcon | String | Unmuted icon in base64 | false | null | null |
-| unmutedColor | String | Unmuted color | false | 'ff00aa00' | null |
+| muted_icon | String | Muted icon in base64 | false | null | null |
+| muted_color | String | Muted color | false | 'ffaa0000' | null |
+| unmuted_icon | String | Unmuted icon in base64 | false | null | null |
+| unmuted_color | String | Unmuted color | false | 'ff00aa00' | null |
 
 ## Example in layout file
 
@@ -23,10 +23,10 @@ Mute / unmute system microphone
             {
                 "name": "mute-mic",
                 "props": {
-                    "mutedIcon": "iVBORw0KGgoAAAANSUhEUgAAAKAAAAFACAYAAAA7/HcbAA.......",
-                    "mutedColor": "ffaa0000",
-                    "unmutedIcon": "iVBORw0KGgoAAAANSUhEUgAAAKAAAAFACAYAAAA7/HcbAA.......",
-                    "unmutedColor": "ff00aa00"
+                    "muted_icon": "iVBORw0KGgoAAAANSUhEUgAAAKAAAAFACAYAAAA7/HcbAA.......",
+                    "muted_color": "ffaa0000",
+                    "unmuted_icon": "iVBORw0KGgoAAAANSUhEUgAAAKAAAAFACAYAAAA7/HcbAA.......",
+                    "unmuted_color": "ff00aa00"
                 }
             }
         ]
