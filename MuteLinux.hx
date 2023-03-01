@@ -21,7 +21,7 @@ class MuteLinux {
 					case MicAction.unmute:
 						'0';
 				}
-				js.node.ChildProcess.spawn('pactl set-source-mute @DEFAULT_SOURCE@ $actionValue');
+				js.node.ChildProcess.spawn('pactl', ['set-source-mute', '@DEFAULT_SOURCE@', actionValue]);
 			}
 
 			resolve(action == MicAction.mute);
