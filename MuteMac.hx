@@ -9,7 +9,7 @@ class MuteMac {
 	static public function mute(action:MicAction):js.lib.Promise<Bool> {
 		return new js.lib.Promise((resolve, _) -> {
 			inline function setVolume(vol) {
-				runOsascript('set volume input volume ${Std.string(vol)}');
+				js.node.ChildProcess.spawn('osascript', ['-e', 'set', 'volume', 'input', 'volume', Std.string(vol)]);
 				resolve(action == MicAction.mute);
 			}
 
@@ -18,9 +18,5 @@ class MuteMac {
 				case MicAction.unmute: setVolume(100);
 			}
 		});
-	}
-
-	static function runOsascript(args:String) {
-		js.node.ChildProcess.spawn('osascript', ['-e', args]);
 	}
 }
