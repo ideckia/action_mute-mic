@@ -49,8 +49,10 @@ class MuteMic extends IdeckiaAction {
 	function isBlank(s:String)
 		return s == null || StringTools.trim(s) == '';
 
-	public function execute(currentState:ItemState):js.lib.Promise<ItemState> {
-		return executeAction((isMuted) ? unmute : mute, currentState);
+	public function execute(currentState:ItemState):js.lib.Promise<ActionOutcome> {
+		return new js.lib.Promise((resolve, reject) -> {
+			executeAction((isMuted) ? unmute : mute, currentState).then(state -> resolve(new ActionOutcome({state: state}))).catchError(reject);
+		});
 	}
 
 	function executeAction(action:MicAction, state:ItemState) {
