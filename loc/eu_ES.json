@@ -1,0 +1,22 @@
+[
+	{
+		"id": "action_description",
+		"text": "Sistemako mikrofonoa mututzeko ekintza"
+	},
+	{
+		"id": "prop_muted_icon",
+		"text": "Mutu dagonerako ikonoa base64-n"
+	},
+	{
+		"id": "prop_muted_color",
+		"text": "Mutu kolorea"
+	},
+	{
+		"id": "prop_unmuted_icon",
+		"text": "Ez-mutu dagonerako ikonoa base64-n"
+	},
+	{
+		"id": "prop_unmuted_color",
+		"text": "Ez-mutu kolorea"
+	}
+]

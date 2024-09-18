@@ -1,0 +1,22 @@
+[
+	{
+		"id": "action_description",
+		"text": "Mute / unmute system microphone"
+	},
+	{
+		"id": "prop_muted_icon",
+		"text": "Muted icon in base64"
+	},
+	{
+		"id": "prop_muted_color",
+		"text": "Muted color"
+	},
+	{
+		"id": "prop_unmuted_icon",
+		"text": "Unmuted icon in base64"
+	},
+	{
+		"id": "prop_unmuted_color",
+		"text": "Unmuted color"
+	}
+]

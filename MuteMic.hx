@@ -3,13 +3,13 @@ package;
 using api.IdeckiaApi;
 
 typedef Props = {
-	@:editable("Muted icon in base64")
+	@:editable("prop_muted_icon")
 	var muted_icon:String;
-	@:editable("Muted color", 'ffaa0000')
+	@:editable("prop_muted_color", 'ffaa0000')
 	var muted_color:String;
-	@:editable("Unmuted icon in base64")
+	@:editable("prop_unmuted_icon")
 	var unmuted_icon:String;
-	@:editable("Unmuted color", 'ff00aa00')
+	@:editable("prop_unmuted_color", 'ff00aa00')
 	var unmuted_color:String;
 }
 
@@ -25,7 +25,8 @@ enum abstract MicAction(String) to String {
 }
 
 @:name("mute-mic")
-@:description("Mute / unmute system microphone")
+@:description("action_description")
+@:localize
 class MuteMic extends IdeckiaAction {
 	var mutedIcon:String;
 	var unmutedIcon:String;
