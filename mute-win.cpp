@@ -76,7 +76,7 @@ int main(int argc, char** argv) {
         }
         
     } else {
-        printf("Wrong version of windows, req. vista+ !\n");        
+        printf("Wrong version of windows, req. vista+ !\n");
     }
 
     fflush(stdout); // just in case
