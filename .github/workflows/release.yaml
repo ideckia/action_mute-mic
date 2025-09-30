@@ -12,7 +12,7 @@ jobs:
 
     env:
       CMD_NAME: mute-mic
-      HAXE_VERSION: latest
+      HAXE_VERSION: 4.2.4
 
     steps:
     - uses: actions/checkout@v2
